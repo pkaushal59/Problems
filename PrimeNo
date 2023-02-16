@@ -1,0 +1,37 @@
+Given an Integer A. Return 1 if A is prime and return 0 if not.
+
+public class Solution {
+    public int solve(Long A) {
+        if(countFactors(A) == 2)
+        {
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+
+    public int countFactors(Long A)
+    {
+        int facts=0;
+        for (int i=1;(long)i*i <=A;i++)
+        {
+            if(facts>2)
+            {
+                break;
+            }
+            if(A%i == 0)
+            {
+                if(i==(A/i))
+                {
+                    facts++;
+                }
+                else
+                {
+                    facts +=2;
+                }
+            }
+        }
+        return facts;
+    }
+}
